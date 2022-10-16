@@ -13,11 +13,12 @@ namespace EPAM_TAO_BDD_UI_TESTS.Hooks
     public sealed class TestHooks : TestHookup
     {
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
+        
+        private string strBrowser { get { return ConfigurationManager.AppSettings["Browser"].ToString(); } }
+        private string strSiteURL { get { return ConfigurationManager.AppSettings["SiteURL"].ToString(); } }
+        private string strAUT { get { return ConfigurationManager.AppSettings["AUT"].ToString(); } }
 
         public static readonly IObjectContainer objectContainer = new ObjectContainer();
-        public string strBrowser { get { return ConfigurationManager.AppSettings["Browser"].ToString(); } }
-        public string strSiteURL { get { return ConfigurationManager.AppSettings["SiteURL"].ToString(); } }
-        public string strAUT { get { return ConfigurationManager.AppSettings["AUT"].ToString(); } }                
 
         [BeforeScenario]
         public void BeforeScenario(ScenarioContext scenarioContext)
